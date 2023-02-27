@@ -118,10 +118,36 @@
 }
 
 .numb {
-    font-size: 40px;
+   
     font-weight: 700;
     margin-bottom: 10px;
     color: transparent;
     -webkit-text-stroke: 1px rgb(177, 151, 119);
 }
+.bg-img h3 {
+    color: #fff;
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 150px;
+    position: relative;
+    z-index: 3;
+}
 
+.bg-img:after {
+    content: '';
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    right: 7px;
+    bottom: 7px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.25);
+}
+.coulmn:after {
+    position: absolute;
+    content: '';
+    width: 75px;
+    border-top: 2px dashed #b19777;
+    top: 75px;
+    right: -35px;
+}
