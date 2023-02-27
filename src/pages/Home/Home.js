@@ -4,6 +4,8 @@ import Service from '../Service/Service'
 import About from './About'
 import Banner from './Banner'
 import Brand from './Brand'
+import Work from './Work'
+
 
 
 
@@ -16,7 +18,7 @@ function Home() {
       <Features></Features>
       <Service></Service>
       <Brand></Brand>
- 
+      <Work></Work>
     
     </div>
   )
