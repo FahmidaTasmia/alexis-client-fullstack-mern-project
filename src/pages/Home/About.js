@@ -16,7 +16,7 @@ function About() {
      <div className='grid md:grid-cols-2 lg:p-0 p-3'>
         <div className='text-start relative'>
        
-            <h2 className='text-white text-4xl  lg:text-[50px] font-bold uppercase'>Creative Solutions <br /> By Professional <br /> Designers</h2>
+            <h2 className='text-white text-4xl leading-normal  lg:text-[50px] font-bold uppercase'>Creative Solutions <br /> By Professional <br /> Designers</h2>
            
             <p className='text-gray-400 pb-6'>Beauty, in architecture, lies in the performance and behavior of architectural structures and façade elements as a component. The structural form should have an aesthetic appeal while being simultaneously driven by engineering considerations.</p>
             <Link className='btn bg-[#c5a47e] rounded-none curve-btn hover:bg-transparent hover:text-[#c5a47e] '>Explore More </Link>
