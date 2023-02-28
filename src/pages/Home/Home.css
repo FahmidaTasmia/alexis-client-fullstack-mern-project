@@ -124,10 +124,18 @@
     color: transparent;
     -webkit-text-stroke: 1px rgb(177, 151, 119);
 }
+ .bg-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 30px;
+    text-align: center;
+    position: relative;
+}
 .bg-img h3 {
     color: #fff;
     font-size: 40px;
-    font-weight: 300;
+    font-weight: 500;
     line-height: 150px;
     position: relative;
     z-index: 3;
@@ -150,4 +158,5 @@
     border-top: 2px dashed #b19777;
     top: 75px;
     right: -35px;
+   
 }
