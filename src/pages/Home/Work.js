@@ -14,48 +14,48 @@ function Work() {
     <div className='bg-black relative py-20' style={{backgroundImage:(`url(${line})`)}}>
        <div className="absolute inset-0  bg-black opacity-40"></div>
       <div className='max-w-screen-xl mx-auto p-10'>
-      <div className='text-start px-3' data-aos="fade-right">
+      <div className='text-start px-3 relative' data-aos="fade-right">
       
-      <h2 className='text-[#c5a47e] tracking-[10px] font-semibold text-2xl  uppercase'>Work Process</h2>
+      <h2 className='text-[#c5a47e] md:tracking-[10px] tracking-[5px] font-semibold text-2xl  uppercase'>Work Process</h2>
 
-      <h2 className='z-20 text-5xl tracking-[5px] font-bold text-white uppercase pb-16'>HOW WE DO IT.</h2>
+      <h2 className='z-20 md:text-5xl text-2xl tracking-[5px] font-bold text-white uppercase pb-16'>HOW WE DO IT.</h2>
  
       
       </div>
         <div className='max-w-screen-xl mx-auto'>
-        <div className='grid lg:grid-cols-4 grid-cols-2   'data-aos="fade-up">
+        <div className='grid lg:grid-cols-4 md:grid-cols-2 px-5  'data-aos="fade-up">
          <div className='relative'>
-         <div className='coulmn '>
+         <div className='coulmn mb-5 '>
           <div className='relative text-white  '>
            <div className='bg-img rounded-full ' style={{backgroundImage:(`url(${work1})`)}}>
                 <h3>01</h3>
             </div>
             <h2 className='font-bold text-xl py-3'>CONCEPT</h2>
-            <p>Nulla metus metus ullamcorper vel tincidunt sed euismod.</p>
+            <p className='text-gray-400'> Approach that serves as the  basis <br /> for the design</p>
            </div>
           </div>
          </div>
            {/* 2// */}
            <div className='relative'>
-         <div className='coulmn '>
+         <div className='coulmn mb-5 '>
           <div className='relative text-white  '>
            <div className='bg-img rounded-full ' style={{backgroundImage:(`url(${work2})`)}}>
                 <h3>02</h3>
             </div>
             <h2 className='font-bold text-xl py-3 uppercase'>Design Process</h2>
-            <p>Nulla metus metus ullamcorper vel tincidunt sed euismod.</p>
+            <p className='text-gray-400'>Figuring out what you need to do, <br /> then doing it.</p>
            </div>
           </div>
          </div>
            {/* 3// */}
            <div className='relative'>
-         <div className='coulmn '>
+         <div className='coulmn mb-5  '>
           <div className='relative text-white  '>
            <div className='bg-img rounded-full ' style={{backgroundImage:(`url(${work3})`)}}>
                 <h3>03</h3>
             </div>
             <h2 className='font-bold text-xl py-3 uppercase'>Supervision</h2>
-            <p>Nulla metus metus ullamcorper vel tincidunt sed euismod.</p>
+            <p className='text-gray-400'>'Comparing progress with a predetermined plan.</p>
            </div>
           </div>
          </div>
@@ -65,7 +65,7 @@ function Work() {
                 <h3>04</h3>
             </div>
             <h2 className='font-bold text-xl py-3'>Budget Planning</h2>
-            <p>Nulla metus metus ullamcorper vel tincidunt sed euismod.</p>
+            <p className='text-gray-400'> This is an overview of planning your design as well as building budget.</p>
            </div>
         </div>
         </div>

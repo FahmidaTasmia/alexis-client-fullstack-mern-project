@@ -7,7 +7,7 @@ function AllService() {
     const [loading,setLoading]=useState(true);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/allServices')
+        fetch('https://alexis-server.vercel.app/allServices')
         .then(res=>res.json())
         .then(data=>{
             setLoading(false);

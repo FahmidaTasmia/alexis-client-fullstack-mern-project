@@ -9,7 +9,7 @@ function Service() {
     const [loading,setLoading]=useState(true);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/services')
+        fetch('https://alexis-server.vercel.app/services')
         .then(res=>res.json())
         .then(data=>{
             setLoading(false);

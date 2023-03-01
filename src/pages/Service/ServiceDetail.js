@@ -5,6 +5,8 @@ import homesc from '../../asset/homesc.png'
 import 'aos/dist/aos.css';
 import Aos from 'aos';
 import LazyLoad from 'react-lazy-load';
+import AddReview from './AddReview';
+
 
 function ServiceDetail() {
     useEffect(()=>{
@@ -63,6 +65,25 @@ function ServiceDetail() {
                 </div>
 
               </div>
+
+             <div className='bg-black   p-20' >
+           
+              <div className='max-w-screen-xl mx-auto '>
+              <div className='text-start px-3' data-aos="fade-right">
+                
+                <h2 className='text-[#c5a47e] tracking-[10px] font-semibold text-2xl  uppercase'>REVIEW</h2>
+
+                <h2 className='z-20 text-5xl tracking-[5px] font-bold text-white uppercase pb-16'> your  opinion matters.</h2>
+          
+                
+                </div>
+              <div className='shadow-2xl' data-aos="fade-up" >
+             <div>
+             <AddReview></AddReview>
+             </div>
+              </div>
+              </div>
+             </div>
 
              <div className='p-20 static' style={{backgroundImage:(`url(${homesc})`)}}>
                 

@@ -1,31 +1,36 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import background from '../../../asset/line-pattern1.png'
+import background from '../../../asset/dots.png'
 import featm from '../../../asset/photo.avif'
 import { FaGithub, FaGoogle } from 'react-icons/fa'
+import 'aos/dist/aos.css';
+import Aos from 'aos';
 function Login() {
+  useEffect(()=>{
+    Aos.init({duration:3000})
+  },[])
   return (
-    <div className='flex min-h-screen ' style={{backgroundImage:(`url(${background})`)}}>
-        <div className="absolute inset-0 min-h-screen bg-black opacity-70"></div>
-       <div className='relative lg:left-40 lg:w-[40%] m-auto  '>
-      <div className="card flex-shrink-0 h-[100%]  shadow-2xl bg-base-100 z-30">
+    <div className='flex min-h-screen relative bg-black' style={{backgroundImage:(`url(${background})`)}}>
+        <div className="absolute inset-0 min-h-screen bg-black opacity-60"></div>
+       <div className='relative lg:left-40 lg:w-[40%] m-auto   '>
+      <div className="card flex-shrink-0 h-[100%]  shadow-2xl rounded-none z-30 bg-[#262626] text-[#c5a47e]" data-aos="fade-right">
         <div >
-          <h2 className='text-center pt-8 mb-5 text-2xl'>Sign In To Your Account</h2>
+          <h2 className='text-center pt-8 mb-5 text-2xl uppercase'>Sign In To Your Account</h2>
          <div className='flex gap-3 justify-center my-3'>
          <Link className='btn  btn-sm bg-black hover:bg-transparent hover:text-black gap-2 font-normal'><FaGoogle></FaGoogle> Google</Link>
          <Link className='btn  btn-sm bg-black hover:bg-transparent hover:text-black gap-2 font-normal'> <FaGithub></FaGithub> Github</Link>
          </div>
         </div>
-      <form  className="card-body ">
+      <form  className="card-body  ">
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Email</span>
+                            <span className="label-text text-[#c5a47e]">Your Email</span>
                         </label>
                         <input type="text" name='email' placeholder="email" className="input input-bordered" />
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Password</span>
+                            <span className="label-text text-[#c5a47e]">Password</span>
                         </label>
                         <input type="text" name='password' placeholder="password" className="input input-bordered" />
                         <label className="label">

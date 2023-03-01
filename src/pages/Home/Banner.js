@@ -13,7 +13,7 @@ function Banner() {
     <div>
         {/* lg device */}
         <div className='hidden lg:block'>
-        <div className='flex min-h-screen' style={{backgroundImage:(`url(${background})`)}}>
+        <div className='flex min-h-screen relative z-40' style={{backgroundImage:(`url(${background})`)}}>
         <div className="absolute inset-0  bg-black opacity-70"></div>
       <div className='w-[60%] relative  left-72 z-30 m-auto text-start' data-aos="fade-right">
         <h2 className='text-[#c5a47e] tracking-[22px] text-2xl '>INNOVATIVE</h2>

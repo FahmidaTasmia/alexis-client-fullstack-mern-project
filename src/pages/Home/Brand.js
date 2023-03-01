@@ -18,7 +18,7 @@ function Brand() {
   return (
     <div className='bg-black p-24' style={{backgroundImage:(`url(${home})`)}} data-aos="zoom-in-up">
       <div className='max-w-screen-xl mx-auto'>
-      <div className='text-start px-3'data-aos="fade-right" >
+      <div className='text-start  px-3'data-aos="fade-right" >
       
       <h2 className='text-[#c5a47e] tracking-[10px] font-semibold text-2xl pt-8 uppercase'>CORPORATION</h2>
 
