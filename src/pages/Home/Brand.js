@@ -16,7 +16,7 @@ function Brand() {
         Aos.init({duration:3000})
       },[])
   return (
-    <div className='bg-black p-24' style={{backgroundImage:(`url(${home})`)}} data-aos="zoom-in-up">
+    <div className='bg-black md:p-24 px-3 py-10' style={{backgroundImage:(`url(${home})`)}} data-aos="zoom-in-up">
       <div className='max-w-screen-xl mx-auto'>
       <div className='text-start  px-3'data-aos="fade-right" >
       
