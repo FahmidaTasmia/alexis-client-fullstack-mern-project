@@ -15,11 +15,12 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 
 
 function Testimonial() {
+ 
   return (
     <div className='h-min-screen relative' style={{backgroundImage:(`url(${tes})`)}} >
       <div className="absolute inset-0  bg-white opacity-80"></div>
        <>
-      <Swiper
+      <Swiper 
         spaceBetween={30}
         centeredSlides={false}
         autoplay={{
@@ -28,10 +29,12 @@ function Testimonial() {
         }}
         pagination={{
           clickable: true,
+          color:'#c5a47e'
+        
         }}
         navigation={false}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
+        className="mySwiper bg-[#c4a57e]"
       >
         <SwiperSlide> 
         <div className='relative md:p-32  py-32 px-5' style={{backgroundImage:(`url(${tes})`)}}>
