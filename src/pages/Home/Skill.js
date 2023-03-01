@@ -3,13 +3,13 @@ import skill from '../../asset/skill.jpg'
 
 function Skill() {
   return (
-    <div className='bg-black p-32  relative'  style={{backgroundImage:(`url(${skill})`),backgroundSize:'cover',backgroundPosition:'center'}}>
+    <div className='bg-black md:p-32 p-5  relative'  style={{backgroundImage:(`url(${skill})`),backgroundSize:'cover',backgroundPosition:'center'}}>
           <div className="absolute inset-0  bg-black opacity-70"></div>
          
         <div className='max-w-screen-xl mx-auto'>
         <div className='text-center  relative' data-aos="fade-right">
-        <h2 className='text-[#c5a47e] md:tracking-[5px]'>BEST SKILL</h2>
-        <h2 className='text-white text-2xl  md:text-4xl font-serif md:tracking-[4px] my-4'> Best Skills</h2>
+        <h2 className='text-[#c5a47e] md:tracking-[5px]'> SKILL WE Have</h2>
+        <h2 className='text-white text-xl  md:text-4xl font-serif md:tracking-[4px] my-4'> Providing Customized Design Solutions</h2>
 
         </div>
         <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-8 lg:mt-16 mt-8' data-aos="fade-up" >

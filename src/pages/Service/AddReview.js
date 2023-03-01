@@ -31,7 +31,7 @@ const AddReview = ({serviceId, serviceName}) => {
     
         };
         
-        fetch('http://localhost:5000/review',{
+        fetch('https://alexis-server.vercel.app/review',{
             method:"POST",
             headers:{
                 "content-type":"application/json",

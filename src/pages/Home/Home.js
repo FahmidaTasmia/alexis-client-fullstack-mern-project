@@ -6,6 +6,7 @@ import Banner from './Banner'
 import Brand from './Brand'
 import Skill from './Skill'
 import Slider from './Slider'
+import Team from './Team'
 
 import Testimonial from './Testimonial/Testimonial'
 import Work from './Work'
@@ -27,6 +28,7 @@ function Home() {
       <Brand></Brand>
       <Skill></Skill>
       <Testimonial></Testimonial>
+      <Team></Team>
     
       
     
