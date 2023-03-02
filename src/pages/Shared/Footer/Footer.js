@@ -61,8 +61,8 @@ function Footer() {
             </div>
 
             <div className='flex pb-8'>
-            <input type="text" placeholder="Type here" className="input input-bordered border-[#c5a47e] w-full rounded-full" />
-            <p className='text-2xl border p-5 border-[#c5a47e] rounded-full relative right-10 z-30 bg-[#c5a47e] bottom-3' ><SlPaperPlane className='text-white'></SlPaperPlane></p>
+            <input type="text" placeholder="Type here" className="input input-bordered text-black border-[#c5a47e] w-full rounded-full" />
+            <p className='text-2xl border p-5 border-[#c5a47e] rounded-full relative right-10 z-30 bg-[#c5a47e] bottom-3 ' ><SlPaperPlane className='text-black'></SlPaperPlane></p>
             </div>
         </div>
 

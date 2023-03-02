@@ -16,7 +16,7 @@ function AllServiceCard({service}) {
       <h4 className='text-start md:text-[40px] text-[32px]  py-3 numb tracking-[2px] '>{name}</h4>
       <p className='text-start pb-5'>{shortdes}</p>
      <div className='relative '>
-     <Link to={`/services/${_id}`} className='btn  bg-[#c5a47e] rounded-none curve-btn hover:bg-transparent hover:text-[#c5a47e] uppercase'>View Details </Link>
+     <Link to={`/services/${_id}`} className='btn  bg-[#c5a47e] rounded-none curve-btn hover:bg-transparent hover:text-[#c5a47e] uppercase text-black'>View Details </Link>
      </div>
     
     </div>

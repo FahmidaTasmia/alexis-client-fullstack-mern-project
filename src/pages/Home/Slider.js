@@ -37,7 +37,7 @@ function Slider() {
         <h2 className='text-[80px] tracking-[5px] font-bold text-white'>MODERN DESIGN</h2>
         <p className='text-white mb-8'>Right design and Right ideas matter a lot in interior design. 
         <br /> A style that makes a statement</p>
-        <Link className='btn bg-[#c5a47e] rounded-none curve-btn hover:bg-transparent hover:text-[#c5a47e] '>Explore More </Link>
+        <Link className='btn bg-[#c5a47e] rounded-none curve-btn hover:bg-transparent hover:text-[#c5a47e] text-black '>Explore More </Link>
       </div>
       <div className='z-10 w-[60%] '>
       <div className="absolute inset-0  bg-black opacity-50"></div>
@@ -56,7 +56,7 @@ function Slider() {
         <h2 className='text-[80px] tracking-[5px] font-bold text-white'>DESIGN AGENCY</h2>
         <p className='text-white mb-8'>Right design and Right ideas matter a lot in interior design. 
         <br /> A style that makes a statement</p>
-        <Link className='btn bg-[#c5a47e] rounded-none curve-btn hover:bg-transparent hover:text-[#c5a47e] '>Explore More </Link>
+        <Link className='btn bg-[#c5a47e] rounded-none curve-btn hover:bg-transparent hover:text-[#c5a47e] text-black '>Explore More </Link>
       </div>
       <div className='z-10 w-[60%] '>
       <div className="absolute inset-0  bg-black opacity-50"></div>
@@ -75,7 +75,7 @@ function Slider() {
         <h2 className='text-[80px] tracking-[5px] font-bold text-white'> UNIQUE DESIGN</h2>
         <p className='text-white mb-8'>Right design and Right ideas matter a lot in interior design. 
         <br /> A style that makes a statement</p>
-        <Link className='btn bg-[#c5a47e] rounded-none curve-btn hover:bg-transparent hover:text-[#c5a47e] '>Explore More </Link>
+        <Link className='btn bg-[#c5a47e] rounded-none curve-btn hover:bg-transparent hover:text-[#c5a47e] text-black '>Explore More </Link>
       </div>
       <div className='z-10 w-[60%] '>
       <div className="absolute inset-0  bg-black opacity-50"></div>
