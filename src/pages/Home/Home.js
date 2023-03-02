@@ -1,4 +1,5 @@
 import React from 'react'
+import useTitle from '../../hooks/UseTitle'
 import Features from '../Portfolio/Features'
 import Service from '../Service/Service'
 
@@ -14,10 +15,8 @@ import Testimonial from './Testimonial/Testimonial'
 import Work from './Work'
 
 
-
-
 function Home() {
- 
+ useTitle('Home')
   return (
     <div>
     
