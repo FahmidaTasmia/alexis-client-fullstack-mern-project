@@ -1,10 +1,12 @@
+import AboutHome from "../pages/About/AboutHome";
+import Contact from "../pages/Contact/Contact";
 import AllServices from "../pages/Service/AllService";
 
 import ServiceDetail from "../pages/Service/ServiceDetail";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../Layout/Main");
-const { default: About } = require("../pages/About/About");
+
 const { default: Blog } = require("../pages/Blog/Blog");
 const { default: Home } = require("../pages/Home/Home");
 const { default: Login } = require("../pages/Shared/Login/Login");
@@ -32,7 +34,7 @@ const router = createBrowserRouter([
 
             {
                 path:'/about',
-                element:<About></About>
+                element:<AboutHome></AboutHome>
             },
 
             {
@@ -50,7 +52,13 @@ const router = createBrowserRouter([
             {
                 path:'/service',
                 element:<AllServices></AllServices>
+            },
+
+            {
+                path:'/contact',
+                element:<Contact></Contact>
             }
+
 
         ]
     }

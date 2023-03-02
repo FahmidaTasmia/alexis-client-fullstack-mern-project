@@ -34,14 +34,14 @@ function Testimonial() {
         }}
         navigation={false}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper bg-[#c4a57e]"
+        className="mySwiper"
       >
         <SwiperSlide> 
         <div className='relative md:p-32  py-32 px-5' style={{backgroundImage:(`url(${tes})`)}}>
             <div className="absolute inset-0  bg-white opacity-80"></div>
             <div className='max-w-screen-xl mx-auto'>
             <div className='grid lg:grid-cols-2 gap-12'>
-            <div className='border-8 m-auto md:p-20 p-12 relative'>
+            <div className='border-8 m-auto md:p-20 p-12 relative '>
                 <img src={colon} alt="" className=' w-32 z-30 bg-white mx-8 absolute top-[-70px]'/>
                <p className='text-start font-serif leading-8 uppercase'>
                I just love their design for all stunning details. You must know what can you do for a project before taking it, but with Alexis, the sky is the limit.

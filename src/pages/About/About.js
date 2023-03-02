@@ -10,7 +10,7 @@ function About() {
   return (
    <div className='lg:p-24 p-5 relative' style={{backgroundImage:(`url(${vecto})`),backgroundRepeat:'no-repeat', backgroundSize:'cover',backgroundPosition:'center'}}>
  <div className="absolute inset-0  bg-white opacity-80"></div>
-    <div className='max-w-screen-xl mx-auto  relative'>
+    <div className='max-w-screen-xl mx-auto  relative' data-aos="fade-up">
     <div className='text-start px-3 pb-3 lg:pb-16' data-aos="fade-right">
       
       <h2 className='text-[#c5a47e] md:tracking-[10px] tracking-[3px] font-semibold md:text-2xl  uppercase'>MODERN TRENDS OF LIVING</h2>
