@@ -28,7 +28,7 @@ function Contact() {
                 <h1 className='lg:pr-20 lg:text-xl font-sans  text-justify py-5 lg:mb-4'>
                 For more information or any booking, our reservation team is available 24/7 by phone <span className='text-[#c5a47e]'>
                 +33(0)7994688 </span>  or by email  
-                <span className='text-[#c5a47e]'> xanthous@team.com </span>.</h1>
+                <span className='text-[#c5a47e]'> tasmia1070@gmail.com </span>.</h1>
             </div>
            <form className='text-white' >
                   <div className='grid  gap-4 '>
