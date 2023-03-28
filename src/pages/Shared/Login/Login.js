@@ -1,17 +1,134 @@
-import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext} from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import background from '../../../asset/dots.png'
 import featm from '../../../asset/photo.avif'
 import { FaEnvelope, FaGithub, FaGoogle, FaUnlock } from 'react-icons/fa'
-import 'aos/dist/aos.css';
-import Aos from 'aos';
 import useTitle from '../../../hooks/UseTitle'
 import Modal from './Modal'
+import useScrollToTop from '../../../hooks/useScrollToTop'
+import { AuthContext } from '../../../contexts/AuthProvider'
+import { toast } from 'react-hot-toast'
 function Login() {
   useTitle('Login')
-  useEffect(()=>{
-    Aos.init({duration:3000})
-  },[])
+  useScrollToTop();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
+
+  const {
+    loginWithGoogle,
+    loginWithGitHub,
+    signIn,
+    setLoading,
+  } = useContext(AuthContext);
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    try {
+      signIn(email, password)
+        .then((result) => {
+          const currentUser = {
+            email: result.user.email,
+            uid: result.user.uid,
+            displayName: result.user.displayName,
+          };
+
+          // JWT TOKEN
+          fetch(`${process.env.REACT_APP_SERVER_URL}/jwt`, {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(currentUser),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              // SET TOKEN TO LOCAL STORAGE
+              localStorage.setItem("token", data.token);
+              navigate(from, { replace: true });
+              toast.success("Login Successful");
+              e.target.reset();
+            })
+            .catch((error) => {
+              toast.error(error.message);
+            });
+          setLoading(false);
+        })
+        .catch((error) => {
+          setLoading(false);
+          toast.error(error.message);
+        });
+    } catch (error) {
+      toast.error(error.message);
+      setLoading(false);
+    }
+  };
+
+  const handleGoogleLogin = () => {
+    loginWithGoogle()
+      .then((result) => {
+        const currentUser = {
+          email: result.user.email,
+          uid: result.user.uid,
+          displayName: result.user.displayName,
+        };
+
+        // JWT TOKEN
+        fetch(`${process.env.REACT_APP_SERVER_URL}/jwt`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            // SET TOKEN TO LOCAL STORAGE
+            localStorage.setItem("token", data.token);
+            navigate(from, { replace: true });
+            toast.success(`Welcome ${result.user.displayName}`);
+          });
+      })
+      .catch((error) => {
+        toast.error(error.message);
+        setLoading(false);
+      });
+  };
+
+  const handleGithubLogin = () => {
+    loginWithGitHub()
+      .then((result) => {
+        const currentUser = {
+          email: result.user.email,
+          uid: result.user.uid,
+          displayName: result.user.displayName,
+        };
+
+        // JWT TOKEN
+        fetch(`${process.env.REACT_APP_SERVER_URL}/jwt`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            // SET TOKEN TO LOCAL STORAGE
+            localStorage.setItem("token", data.token);
+            navigate(from, { replace: true });
+            toast.success(`Welcome ${result.user.displayName}`);
+          });
+      })
+      .catch((error) => {
+        toast.error(error.message);
+        setLoading(false);
+      });
+  };
+
+  
   return (
     <div className='flex min-h-screen relative bg-black' style={{backgroundImage:(`url(${background})`)}}>
         <div className="absolute inset-0 min-h-screen bg-black opacity-60"></div>
@@ -20,11 +137,11 @@ function Login() {
         <div >
           <h2 className='text-center pt-8 mb-5 text-2xl uppercase'>Sign In To Your Account</h2>
          <div className='flex gap-3 justify-center my-3'>
-         <Link className='btn  btn-sm bg-black hover:bg-transparent hover:text-[#c5a47e] hover:border-[#c5a47e] gap-2 font-normal'><FaGoogle></FaGoogle> Google</Link>
-         <Link className='btn  btn-sm bg-black hover:bg-transparent hover:text-[#c5a47e] hover:border-[#c5a47e] gap-2 font-normal'> <FaGithub></FaGithub> Github</Link>
+         <Link  onClick={handleGoogleLogin}  className='btn  btn-sm bg-black hover:bg-transparent hover:text-[#c5a47e] hover:border-[#c5a47e] gap-2 font-normal'><FaGoogle></FaGoogle> Google</Link>
+         <Link  onClick={handleGithubLogin} className='btn  btn-sm bg-black hover:bg-transparent hover:text-[#c5a47e] hover:border-[#c5a47e] gap-2 font-normal'> <FaGithub></FaGithub> Github</Link>
          </div>
         </div>
-      <form  className="card-body  ">
+      <form  className="card-body  " onSubmit={handleLogin}>
       <div className="flex flex-col my-5">
               <div className="flex relative ">
                 <span className=" inline-flex  items-center p-5 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
@@ -55,7 +172,7 @@ function Login() {
               <Modal></Modal>
             </div>
                     <div className="form-control mt-6">
-                        <input className="btn bg-black border-black duration-700 hover:bg-transparent hover:text-[#c5a47e] hover:border-[#c5a47e]  text-white" type="submit" value="Login" />
+                        <input className="btn rounded-none bg-black border-black duration-700 hover:bg-transparent hover:text-[#c5a47e] hover:border-[#c5a47e]  text-white" type="submit" value="Login" />
                     </div>
                 </form>
 

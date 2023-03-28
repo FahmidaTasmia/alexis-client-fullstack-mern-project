@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import background from '../../asset/patern.png'
+
 import banner from '../../asset/interior.jpg'
 import { Link } from 'react-router-dom'
 import './Home.css'
