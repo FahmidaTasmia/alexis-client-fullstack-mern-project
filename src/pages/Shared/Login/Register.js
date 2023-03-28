@@ -1,16 +1,141 @@
-import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext} from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import background from '../../../asset/dots.png'
 import featm from '../../../asset/photo.avif'
 import { FaCamera, FaEnvelope, FaGithub, FaGoogle, FaUnlock, FaUser } from 'react-icons/fa'
-import 'aos/dist/aos.css';
-import Aos from 'aos';
+import { updateProfile } from "firebase/auth";
 import useTitle from '../../../hooks/UseTitle'
+import { toast } from 'react-hot-toast'
+import { AuthContext } from '../../../contexts/AuthProvider'
 function Register() {
   useTitle('Register')
-  useEffect(()=>{
-    Aos.init({duration:3000})
-  },[])
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
+
+  const { loginWithGoogle, loginWithGitHub, register, setLoading } =
+    useContext(AuthContext);
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const photoURL = e.target.photoURL.value;
+
+    if (password.length < 6) {
+      toast.error("Password must be at least 6 characters long");
+      return;
+    }
+
+    register(email, password)
+      .then((result) => {
+        const currentUser = {
+          email: result.user.email,
+          uid: result.user.uid,
+          displayName: result.user.displayName,
+        };
+
+        fetch(`${process.env.REACT_APP_SERVER_URL}/jwt`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+
+            // SET TOKEN TO LOCAL STORAGE
+            localStorage.setItem("token", data.token);
+            navigate(from, { replace: true });
+            toast.success("Login Successful");
+            const user = result.user;
+            e.target.reset();
+            toast.success("Account Registration Successful!");
+            updateProfile(user, {
+              displayName: name,
+              photoURL: photoURL,
+            }).catch((error) => {
+              toast.error(error.message);
+            });
+          })
+          .then(() => {
+            navigate(from, { replace: true });
+            toast.info("Profile Updated");
+          })
+          .catch((error) => {
+            toast.error(error.message);
+          });
+      })
+      .catch((error) => {
+        toast.error(error.message);
+        setLoading(false);
+      });
+  };
+
+  const handleGoogleLogin = () => {
+    loginWithGoogle()
+      .then((result) => {
+        const currentUser = {
+          email: result.user.email,
+          uid: result.user.uid,
+          displayName: result.user.displayName,
+        };
+
+        // JWT TOKEN
+        fetch(`${process.env.REACT_APP_SERVER_URL}/jwt`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            // SET TOKEN TO LOCAL STORAGE
+            localStorage.setItem("token", data.token);
+            navigate(from, { replace: true });
+            toast.success(`Welcome ${result.user.displayName}`);
+          });
+      })
+      .catch((error) => {
+        toast.error(error.message);
+        setLoading(false);
+      });
+  };
+
+  const handleGithubLogin = () => {
+    loginWithGitHub()
+      .then((result) => {
+        const currentUser = {
+          email: result.user.email,
+          uid: result.user.uid,
+          displayName: result.user.displayName,
+        };
+
+        // JWT TOKEN
+        fetch(`${process.env.REACT_APP_SERVER_URL}/jwt`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            // SET TOKEN TO LOCAL STORAGE
+            localStorage.setItem("token", data.token);
+            navigate(from, { replace: true });
+            toast.success(`Welcome ${result.user.displayName}`);
+          });
+      })
+      .catch((error) => {
+        toast.error(error.message);
+        setLoading(false);
+      });
+  };
   return (
     <div className='flex  min-h-screen relative bg-black' style={{backgroundImage:(`url(${background})`)}}>
         <div className="absolute inset-0 min-h-screen bg-black opacity-60"></div>
@@ -19,11 +144,11 @@ function Register() {
         <div >
           <h2 className='text-center pt-8 mb-5 text-2xl uppercase'>Sign In To Your Account</h2>
          <div className='flex gap-3 justify-center my-3'>
-         <Link className='btn  btn-sm bg-black hover:bg-transparent hover:text-[#c5a47e] hover:border-[#c5a47e] gap-2 font-normal'><FaGoogle></FaGoogle> Google</Link>
-         <Link className='btn  btn-sm bg-black hover:bg-transparent hover:text-[#c5a47e] hover:border-[#c5a47e] gap-2 font-normal'> <FaGithub></FaGithub> Github</Link>
+         <Link onClick={handleGoogleLogin} className='btn  btn-sm bg-black hover:bg-transparent hover:text-[#c5a47e] hover:border-[#c5a47e] gap-2 font-normal'><FaGoogle></FaGoogle> Google</Link>
+         <Link onClick={handleGithubLogin} className='btn  btn-sm bg-black hover:bg-transparent hover:text-[#c5a47e] hover:border-[#c5a47e] gap-2 font-normal'> <FaGithub></FaGithub> Github</Link>
          </div>
         </div>
-        <form className='scale-90 '>
+        <form className='scale-90 ' onSubmit={handleRegister}>
             <div className="flex flex-col mb-2">
               <div className="flex relative ">
                 <span className=" inline-flex  items-center p-5 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">

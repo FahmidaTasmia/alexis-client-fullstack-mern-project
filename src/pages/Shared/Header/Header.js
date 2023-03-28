@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import 'aos/dist/aos.css';
 import Aos from 'aos';
+import { FaUser } from 'react-icons/fa';
 
 
 const Header = () => {
@@ -28,8 +29,8 @@ const Header = () => {
                     {
                         user?.uid?
                         <>
-                        <span className='mr-3'>{user?.displayName}</span>
-                        <button onClick={handleLogOut} >Log out</button>
+                       
+                        <button onClick={ handleLogOut} >Log out</button>
                         </>
                         :
                         <>
@@ -39,7 +40,19 @@ const Header = () => {
                     }
                     </div>
 
-                   
+                    <div>
+
+                       {
+                        user?.photoURL ?
+                        <img className='h-10 rounded-full' src={user.photoURL} alt="" />
+                        :
+                        <FaUser></FaUser>
+                       } 
+
+                     {
+                     user?.displayName
+                     }
+                    </div>
         </li>
     </React.Fragment>
 
