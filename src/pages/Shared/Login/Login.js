@@ -5,7 +5,9 @@ import featm from '../../../asset/photo.avif'
 import { FaGithub, FaGoogle } from 'react-icons/fa'
 import 'aos/dist/aos.css';
 import Aos from 'aos';
+import useTitle from '../../../hooks/UseTitle'
 function Login() {
+  useTitle('Login')
   useEffect(()=>{
     Aos.init({duration:3000})
   },[])
@@ -17,8 +19,8 @@ function Login() {
         <div >
           <h2 className='text-center pt-8 mb-5 text-2xl uppercase'>Sign In To Your Account</h2>
          <div className='flex gap-3 justify-center my-3'>
-         <Link className='btn  btn-sm bg-black hover:bg-transparent hover:text-black gap-2 font-normal'><FaGoogle></FaGoogle> Google</Link>
-         <Link className='btn  btn-sm bg-black hover:bg-transparent hover:text-black gap-2 font-normal'> <FaGithub></FaGithub> Github</Link>
+         <Link className='btn  btn-sm bg-black hover:bg-transparent hover:text-[#c5a47e] hover:border-[#c5a47e] gap-2 font-normal'><FaGoogle></FaGoogle> Google</Link>
+         <Link className='btn  btn-sm bg-black hover:bg-transparent hover:text-[#c5a47e] hover:border-[#c5a47e] gap-2 font-normal'> <FaGithub></FaGithub> Github</Link>
          </div>
         </div>
       <form  className="card-body  ">
@@ -38,12 +40,12 @@ function Login() {
                         </label>
                     </div>
                     <div className="form-control mt-6">
-                        <input className="btn bg-black border-none  text-white" type="submit" value="Login" />
+                        <input className="btn bg-black border-black duration-700 hover:bg-transparent hover:text-[#c5a47e] hover:border-[#c5a47e]  text-white" type="submit" value="Login" />
                     </div>
                 </form>
                
 
-                <p className='text-center p-5'>New to <span className=' font-bold '>Alexis</span> services ? Please <Link className=' font-bold ' to="/signup">Sign Up</Link> </p>
+                <p className='text-center p-5 text-white'>New to <span className=' font-bold text-[#c5a47e]'>Alexis</span> services ? Please <Link className=' font-semibold text-[#c5a47e] ' to="/register">Register</Link> </p>
     </div>
   </div>
   <div className='max-w-[70%] z-10 hidden lg:block'>
