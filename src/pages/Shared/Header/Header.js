@@ -11,10 +11,10 @@ const Header = () => {
   useEffect(()=>{
     Aos.init({duration:2000})
   },[])
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logout } = useContext(AuthContext);
 
     const handleLogOut = () => {
-        logOut()
+        logout()
             .then(() => { })
             .catch(err => console.log(err));
     }

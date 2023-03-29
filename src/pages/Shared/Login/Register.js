@@ -11,7 +11,7 @@ function Register() {
   useTitle('Register')
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location?.state?.from?.pathname || "/";
+  const from = location?.state?.from?.pathname || '/';
 
   const { loginWithGoogle, loginWithGitHub, register, setLoading } =
     useContext(AuthContext);
